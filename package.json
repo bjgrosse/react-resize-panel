@@ -1,0 +1,38 @@
+{
+  "name": "react-resize-panel",
+  "version": "0.2.12",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "browser": "dist/index.umd.js",
+  "dependencies": {
+    "cash-dom": "^4.1.5",
+    "lodash.debounce": "^4.0.8",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
+    "react-draggable": "^4.0.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/preset-env": "^7.2.3",
+    "@babel/preset-react": "^7.6.3",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "rollup": "^1.0.0",
+    "rollup-plugin-babel": "^4.2.0",
+    "rollup-plugin-commonjs": "^9.2.0",
+    "rollup-plugin-node-resolve": "^4.0.0",
+    "rollup-plugin-postcss": "^2.0.3"
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "test": "node test/test.js",
+    "demo:build": "cd \"./demo\" && \"./node_modules/.bin/webpack\"",
+    "demo:watch": "cd \"./demo\" && \"./node_modules/.bin/webpack-dev-server\"",
+    "start": "(npm run watch & npm run demo:watch)"
+  },
+  "files": [
+    "dist"
+  ]
+}

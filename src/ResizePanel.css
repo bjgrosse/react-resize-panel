@@ -1,0 +1,85 @@
+.ResizeContainer {
+    
+}
+
+.ResizeContent {
+    flex-grow: 1;
+    align-self: stretch;
+    display: flex;
+}
+.ResizeContentVertical {
+    flex-flow: column;
+}
+.ResizeContentHorizontal {
+    flex-flow: row;
+}
+.ResizeHandleHorizontal {
+    cursor: ew-resize;
+    width: 12px;
+    height: 50px;
+    background: white;
+    border: 2px solid lightgray;
+    border-radius: 8px;
+    text-align: center;
+    z-index: 99999;
+    overflow: hidden;
+    display: flex;
+    align-items: center ;
+
+}
+
+.ResizeHandleVertical {
+    cursor: ns-resize;
+    width:50px;
+    height: 12px;
+    border-radius: 8px;
+    background: white;
+    border: 2px solid lightgray;
+    z-index: 99999;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+
+}
+
+.ResizeHandlePositionW {
+    margin-left:-8px;
+    margin-right: -9px;
+}
+.ResizeHandlePositionE {
+    margin-right:-8px;
+    margin-left: -9px;
+}
+.ResizeHandlePositionS {
+    margin-top: -9px;
+    margin-bottom: -8px;
+}
+.ResizeHandlePositionN {    
+    margin-top: -8px;   
+    margin-bottom: -9px;
+}
+
+.ResizeHandleHorizontal>span, .ResizeHandleVertical>span {
+    display: inline-block;
+    overflow: hidden;
+    font-size: 12px;
+    font-weight: bold;
+    font-family: sans-serif;
+    letter-spacing: 1px;
+    color: #b3b3b3;
+    text-shadow: 1px 0 1px rgb(90, 90, 90);
+}
+.ResizeHandleHorizontal>span {
+    line-height: 4px;
+}
+.ResizeHandleVertical>span {
+    text-align: center;
+    line-height: 12px;
+    margin-top: -3px;
+}
+.ResizeHandleHorizontal>span::after{
+    content: '. . . . . . . .';
+}
+.ResizeHandleVertical>span::after{
+    content: '......';
+}
