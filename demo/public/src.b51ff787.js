@@ -29,4 +29,4 @@ var t=arguments[3],e="Expected a function",n=NaN,r="[object Symbol]",i=/^\s+|\s+
 },{"react":"n8MK","../../src/ResizePanel":"hv7G","./App.css":"ZmsE"}],"H99C":[function(require,module,exports) {
 "use strict";var e=u(require("react")),r=u(require("react-dom")),t=u(require("./App"));function u(e){return e&&e.__esModule?e:{default:e}}r.default.render(e.default.createElement(t.default,null),document.getElementById("root"));
 },{"react":"n8MK","react-dom":"NKHc","./App":"FLHj"}]},{},["H99C"], null)
-//# sourceMappingURL=/src.b51ff787.js.map
+//# sourceMappingURL=src.b51ff787.js.map
