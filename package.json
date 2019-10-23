@@ -25,7 +25,7 @@
     "rollup-plugin-replace": "^2.2.0"
   },
   "scripts": {
-    "build": "rollup -c",
+    "build": "rollup -c && parcel build demo/index.html -d demo/public",
     "start": "parcel demo/index.html"
   },
   "files": [
