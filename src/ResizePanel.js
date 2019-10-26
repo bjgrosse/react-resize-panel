@@ -7,21 +7,20 @@ import './ResizePanel.css';
 
 const ContainerStyleHorizontal = {
     display: 'flex',
-    alignItems: 'center',
+    alignItems: 'stretch',
     flexFlow: 'row nowrap'
 }
 
 const ContainerStyleVertical = {
     display: 'flex',
-    alignItems: 'center',
+    alignItems: 'stretch',
     flexFlow: 'column nowrap'
-
 }
 
-const HandleDirectionStyles = {
+const HandleDirectionClasses = {
     w: "ResizeHandlePositionW", e: "ResizeHandlePositionE", n: "ResizeHandlePositionN", s: "ResizeHandlePositionS"
 }
-const ResizeBarDirectionStyles = {
+const ResizeBarDirectionClasses = {
     w: "ResizeBarW", e: "ResizeBarE", n: "ResizeBarN", s: "ResizeBarS"
 }
 
@@ -36,9 +35,10 @@ class ResizePanel extends React.Component {
     isHorizontal = () => this.props.direction === "w" || this.props.direction === "e";
 
     componentDidMount() {
-
-        const { content, wrapper } = this.refs;
+        const { content } = this.refs;
         const actualContent = content.children[0];
+
+        // Initialize the size value based on the content's current size
         this.setState({ size: this.isHorizontal() ? $(actualContent).outerWidth(true) : $(actualContent).outerHeight(true) });
     }
 
@@ -50,9 +50,7 @@ class ResizePanel extends React.Component {
 
         // If our resizing has left the parent container's content overflowing
         // then we need to shrink back down to fit
-
         let overflow = isHorizontal ? containerParent.scrollWidth - containerParent.clientWidth : containerParent.scrollHeight - containerParent.clientHeight;
-
         if (overflow) {
             this.setState({
                 ...this.state,
@@ -76,8 +74,7 @@ class ResizePanel extends React.Component {
         const { direction } = this.props;
         const factor = direction === "e" || direction === "s" ? -1 : 1;
 
-        const { content } = this.refs;
-        const minWidth = (this.isHorizontal() ? content.children[0].scrollWidth : content.children[0].scrollheight) || 0;
+        // modify the size based on the drag delta
         let delta = this.isHorizontal() ? ui.deltaX : ui.deltaY
         this.setState((s, p) => ({ size: Math.max(10, s.size - (delta * factor)) }))
     }
@@ -96,15 +93,17 @@ class ResizePanel extends React.Component {
 
         let handleClasses = this.props.handleClass;
 
+        // If we don't have custom handle classes specified, then use our default ones
         if (!handleClasses) {
-            handleClasses = "ResizeHandle " + HandleDirectionStyles[direction];
+            handleClasses = "ResizeHandle " + HandleDirectionClasses[direction];
             handleClasses += (isHorizontal ? " ResizeHandleHorizontal " : " ResizeHandleVertical ");
         }
 
         let resizeBarClasses = this.props.borderClass;
 
+        // If we don't have custom resize bar classes specified, then use our default ones
         if (!resizeBarClasses) {
-            "ResizeBar " + ResizeBarDirectionStyles[direction];
+            "ResizeBar " + ResizeBarDirectionClasses[direction];
             resizeBarClasses += (isHorizontal ? " ResizeBarHorizontal " : " ResizeBarVertical ");
         }
 
@@ -124,6 +123,7 @@ class ResizePanel extends React.Component {
                 </div>
             </DraggableCore>
 
+        // Insert the handle at the beginning of the content if our directio is west or north
         if (direction === 'w' || direction === 'n') {
             content.unshift(handle)
         } else {
