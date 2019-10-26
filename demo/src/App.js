@@ -13,11 +13,11 @@ export default () => (
     <div className="body">
 
       <ResizePanel direction="e">
-        <div className="panel sidebar">left panel</div>
+        <div className="panel sidebar withMargin">left panel<br /> with margin</div>
       </ResizePanel>
       <div className="panel content">content</div>
-      <ResizePanel direction="w">
-        <div className="panel sidebar">right panel</div>
+      <ResizePanel direction="w" handleClass="customHandle" borderClass="customResizeBorder">
+        <div className="panel sidebar">right panel<br /> with custom handle</div>
       </ResizePanel> 
 
     </div>

@@ -13,6 +13,36 @@
 .ResizeContentHorizontal {
     flex-flow: row;
 }
+
+.ResizeBarHorizontal {
+    cursor: ew-resize;
+    width: 20px;
+    height: 100%;
+    margin-left: -10px;
+    margin-right: -10px;
+    background: transparent;
+    display: flex;
+    z-index: 99999;
+    align-items: center ;
+    align-content: center ;
+    justify-content: center;
+
+}
+
+.ResizeBarVertical {
+    cursor: ns-resize;
+    height: 20px;
+    width: 100%;
+    margin-top: -10px;
+    margin-bottom: -10px;
+    background: transparent;
+    display: flex;
+    z-index: 99999;
+    align-items: center ;
+    align-content: center ;
+    justify-content: center;
+
+}
 .ResizeHandleHorizontal {
     cursor: ew-resize;
     width: 12px;
@@ -42,7 +72,7 @@
 
 }
 
-.ResizeHandlePositionW {
+/* .ResizeHandlePositionW {
     margin-left:-8px;
     margin-right: -9px;
 }
@@ -57,7 +87,7 @@
 .ResizeHandlePositionN {    
     margin-top: -8px;   
     margin-bottom: -9px;
-}
+} */
 
 .ResizeHandleHorizontal>span, .ResizeHandleVertical>span {
     display: inline-block;

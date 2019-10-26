@@ -21,6 +21,9 @@ const ContainerStyleVertical = {
 const HandleDirectionStyles = {
     w: "ResizeHandlePositionW", e: "ResizeHandlePositionE", n: "ResizeHandlePositionN", s: "ResizeHandlePositionS"
 }
+const ResizeBarDirectionStyles = {
+    w: "ResizeBarW", e: "ResizeBarE", n: "ResizeBarN", s: "ResizeBarS"
+}
 
 class ResizePanel extends React.Component {
     constructor(props) {
@@ -53,7 +56,7 @@ class ResizePanel extends React.Component {
         if (overflow) {
             this.setState({
                 ...this.state,
-                size: isHorizontal ? actualContent.scrollWidth - overflow : actualContent.scrollHeight - overflow,
+                size: isHorizontal ? actualContent.clientWidth - overflow : actualContent.clientHeight - overflow,
             });
         }
 
@@ -91,22 +94,34 @@ class ResizePanel extends React.Component {
 
         let containerStyle = isHorizontal ? ContainerStyleHorizontal : ContainerStyleVertical;
 
-        let handleClasses = "ResizeHandle " + HandleDirectionStyles[direction];
-        handleClasses += (isHorizontal ? " ResizeHandleHorizontal " : " ResizeHandleVertical ");
+        let handleClasses = this.props.handleClass;
 
+        if (!handleClasses) {
+            handleClasses = "ResizeHandle " + HandleDirectionStyles[direction];
+            handleClasses += (isHorizontal ? " ResizeHandleHorizontal " : " ResizeHandleVertical ");
+        }
+
+        let resizeBarClasses = this.props.borderClass;
+
+        if (!resizeBarClasses) {
+            "ResizeBar " + ResizeBarDirectionStyles[direction];
+            resizeBarClasses += (isHorizontal ? " ResizeBarHorizontal " : " ResizeBarVertical ");
+        }
 
         let contentStyle = isHorizontal ? { width: this.state.size + 'px' } : { height: this.state.size + 'px' };
         let contentClassName = "ResizeContent " + (isHorizontal ? "ResizeContentHorizontal" : "ResizeContentVertical");
 
         let content = [
             <div key="content" ref="content" className={contentClassName} style={contentStyle}>
-                    {React.Children.only(this.props.children)}
+                {React.Children.only(this.props.children)}
             </div>
         ];
 
         let handle =
             <DraggableCore key="handle" {...dragHandlers}>
-                <div className={handleClasses}><span /></div>
+                <div className={resizeBarClasses}>
+                    <div className={handleClasses}><span /></div>
+                </div>
             </DraggableCore>
 
         if (direction === 'w' || direction === 'n') {
