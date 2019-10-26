@@ -32,9 +32,9 @@ Wrap the DIV you want to make resizable:
 </ResizePanel>
 ```
 
-The dirction prop specifies which edge of the panel has the resize handle and whether the panel can be resized vertically or horizontally. Accepted values are: n | s | e | w.
+The direction prop specifies which edge of the panel has the resize handle and whether the panel can be resized vertically or horizontally. Accepted values are: n | s | e | w.
 
-Add custom CSS classes for the resize handle and border:
+Custom CSS classes can be specified for the resize handle and border:
 
 ```js
 <ResizePanel direction="e" handleClass="customHandle" borderClass="customResizeBorder">
