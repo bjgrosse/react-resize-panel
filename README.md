@@ -2,7 +2,7 @@
 
 A very simple resizable panel as a React component. Demo here: https://bjgrosse.github.io/react-resize-panel/demo/public/index.html
 
-![Resize panel demo](https://bjgrosse.github.io/react-resize-panel/demo/public/demo.gif)
+![Resize panel demo](demo/public/demo.gif)
 
 ```js
 <ResizePanel direction="e">
