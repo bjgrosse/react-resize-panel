@@ -1,6 +1,6 @@
 # react-resize-panel
 
-A very simple resizable panel as a React component. Demo here: https://bjgrosse.github.io/react-resize-panel/demo/public/index.html
+A very simple resizable panel as a React component. Demo [here!](https://bjgrosse.github.io/react-resize-panel/demo/public/index.html). 
 
 ![Resize panel demo](demo/public/demo.gif)
 
