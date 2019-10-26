@@ -17,7 +17,6 @@
 .ResizeBarHorizontal {
     cursor: ew-resize;
     width: 20px;
-    height: 100%;
     margin-left: -10px;
     margin-right: -10px;
     background: transparent;
@@ -32,7 +31,6 @@
 .ResizeBarVertical {
     cursor: ns-resize;
     height: 20px;
-    width: 100%;
     margin-top: -10px;
     margin-bottom: -10px;
     background: transparent;

@@ -70,7 +70,6 @@ body {
 .customResizeBorder {
     cursor: ew-resize;
     width: 5px;
-    height: 100%;
     background: gray;
     display: flex;
     z-index: 99999;
