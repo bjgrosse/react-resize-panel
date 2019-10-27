@@ -1,4 +1,15 @@
-
+.Container {
+    display: flex;
+    align-items: stretch;
+}
+.ContainerHorizontal {
+    composes: Container;
+    flex-flow: row nowrap;
+}
+.ContainerVertical {
+    composes: Container;
+    flex-flow: column nowrap;
+}
 .ResizeContent {
     flex-grow: 1;
     align-self: stretch;
@@ -18,7 +29,7 @@
     margin-right: -10px;
     background: transparent;
     display: flex;
-    z-index: 99999;
+    z-index: 10;
     align-items: center ;
     align-content: center ;
     justify-content: center;
@@ -32,7 +43,7 @@
     margin-bottom: -10px;
     background: transparent;
     display: flex;
-    z-index: 99999;
+    z-index: 10;
     align-items: center ;
     align-content: center ;
     justify-content: center;
@@ -46,7 +57,7 @@
     border: 2px solid lightgray;
     border-radius: 8px;
     text-align: center;
-    z-index: 99999;
+    z-index: 10;
     overflow: hidden;
     display: flex;
     align-items: center ;
@@ -60,29 +71,12 @@
     border-radius: 8px;
     background: white;
     border: 2px solid lightgray;
-    z-index: 99999;
+    z-index: 10;
     overflow: hidden;
     display: flex;
     justify-content: center;
 
 }
-
-/* .ResizeHandlePositionW {
-    margin-left:-8px;
-    margin-right: -9px;
-}
-.ResizeHandlePositionE {
-    margin-right:-8px;
-    margin-left: -9px;
-}
-.ResizeHandlePositionS {
-    margin-top: -9px;
-    margin-bottom: -8px;
-}
-.ResizeHandlePositionN {    
-    margin-top: -8px;   
-    margin-bottom: -9px;
-} */
 
 .ResizeHandleHorizontal>span, .ResizeHandleVertical>span {
     display: inline-block;

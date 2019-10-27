@@ -1,29 +1,32 @@
 import React from "react";
 //import ResizePanel from "react-resize-panel";
 import ResizePanel from "../../src/ResizePanel";
-import './App.css';
+import style from './App.css';
+import classNames from 'classnames/bind';
+
+let cx = classNames.bind(style);
 
 export default () => (
-  <div className="container">
+  <div className={cx('container')}>
     <ResizePanel direction="s">
-      <div className="header  panel">
+      <div className={cx('header','panel')}>
         <span>header</span>
       </div>
     </ResizePanel>
-    <div className="body">
+    <div className={cx('body')}>
 
       <ResizePanel direction="e">
-        <div className="panel sidebar withMargin">left panel<br /> with margin</div>
+        <div className={cx('sidebar','withMargin','panel')}>left panel<br /> with margin</div>
       </ResizePanel>
-      <div className="panel content">content</div>
-      <ResizePanel direction="w" handleClass="customHandle" borderClass="customResizeBorder">
-        <div className="panel sidebar">right panel<br /> with custom handle</div>
-      </ResizePanel> 
+      <div className={cx('content','panel')}>content</div>
+      <ResizePanel direction="w" handleClass={style.customHandle} borderClass={style.customResizeBorder}>
+        <div className={cx('sidebar','panel')}>right panel<br /> with custom handle</div>
+      </ResizePanel>
 
     </div>
 
     <ResizePanel direction="n">
-      <div className="footer panel">
+      <div className={cx('footer','panel')}>
         <span >footer</span>
       </div>
     </ResizePanel>

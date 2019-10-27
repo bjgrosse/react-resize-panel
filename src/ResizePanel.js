@@ -2,27 +2,10 @@ import React from 'react';
 import { DraggableCore } from 'react-draggable';
 import debounce from 'lodash.debounce';
 import $ from 'cash-dom';
+import classNames from 'classnames/bind';
+import style from './ResizePanel.css';
+let cx = classNames.bind(style);
 
-import './ResizePanel.css';
-
-const ContainerStyleHorizontal = {
-    display: 'flex',
-    alignItems: 'stretch',
-    flexFlow: 'row nowrap'
-}
-
-const ContainerStyleVertical = {
-    display: 'flex',
-    alignItems: 'stretch',
-    flexFlow: 'column nowrap'
-}
-
-const HandleDirectionClasses = {
-    w: "ResizeHandlePositionW", e: "ResizeHandlePositionE", n: "ResizeHandlePositionN", s: "ResizeHandlePositionS"
-}
-const ResizeBarDirectionClasses = {
-    w: "ResizeBarW", e: "ResizeBarE", n: "ResizeBarN", s: "ResizeBarS"
-}
 
 class ResizePanel extends React.Component {
     constructor(props) {
@@ -89,26 +72,14 @@ class ResizePanel extends React.Component {
         const { direction } = this.props;
         const isHorizontal = this.isHorizontal();
 
-        let containerStyle = isHorizontal ? ContainerStyleHorizontal : ContainerStyleVertical;
+        let containerStyle = cx({ "ContainerHorizontal": isHorizontal, "ContainerVertical": !isHorizontal });
 
-        let handleClasses = this.props.handleClass;
+        let handleClasses = this.props.handleClass || cx({ "ResizeHandleHorizontal": isHorizontal, "ResizeHandleVertical": !isHorizontal });
 
-        // If we don't have custom handle classes specified, then use our default ones
-        if (!handleClasses) {
-            handleClasses = "ResizeHandle " + HandleDirectionClasses[direction];
-            handleClasses += (isHorizontal ? " ResizeHandleHorizontal " : " ResizeHandleVertical ");
-        }
-
-        let resizeBarClasses = this.props.borderClass;
-
-        // If we don't have custom resize bar classes specified, then use our default ones
-        if (!resizeBarClasses) {
-            "ResizeBar " + ResizeBarDirectionClasses[direction];
-            resizeBarClasses += (isHorizontal ? " ResizeBarHorizontal " : " ResizeBarVertical ");
-        }
+        let resizeBarClasses = this.props.borderClass || cx({ "ResizeBarHorizontal": isHorizontal, "ResizeBarVertical": !isHorizontal });
 
         let contentStyle = isHorizontal ? { width: this.state.size + 'px' } : { height: this.state.size + 'px' };
-        let contentClassName = "ResizeContent " + (isHorizontal ? "ResizeContentHorizontal" : "ResizeContentVertical");
+        let contentClassName = cx("ResizeContent" , {"ResizeContentHorizontal": isHorizontal, "ResizeContentVertical": !isHorizontal});
 
         let content = [
             <div key="content" ref="content" className={contentClassName} style={contentStyle}>
@@ -131,7 +102,7 @@ class ResizePanel extends React.Component {
         }
 
         return (
-            <div ref="wrapper" style={containerStyle} className="ResizeContainer">
+            <div ref="wrapper" className={containerStyle}>
                 {content}
             </div>
         );
