@@ -1,6 +1,6 @@
 {
   "name": "react-resize-panel",
-  "version": "0.3.4",
+  "version": "0.3.5",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
   "dependencies": {
