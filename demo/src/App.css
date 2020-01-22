@@ -22,23 +22,47 @@ body {
 }
 .footer {
     background: lightblue;
-    min-height: 50px;
     height: 100%;
+    display:flex;
+    flex-flow: column nowrap;
+    align-items: stretch;
+    text-align: center;
+    justify-content: flex-start;
+    overflow: hidden;
 }
-
+.footerArea{
+    flex-grow: 1;
+    display: flex;
+    min-height: 100px;
+    flex-flow: column;
+    overflow-y: auto;
+}
+.footerAreaContent {
+    min-height: 500px;
+}
+.footerBottomBar {
+    background: blue;
+    color: white;
+    padding: 10px
+}
 .body {
     background: gray;
-    flex-grow: 1;
+    flex-grow: 3;
     display: flex;
     flex-flow: row nowrap;
 }
 
+.sideBarResizeContainer {
+    width: 30%;
+}
 .sidebar {
     background: lightpink;
     min-width: 200px;
+    width: 400px;
     width:100%;
     box-sizing: border-box;
     text-align: center;
+    flex-grow: 1;
 }
 
 
@@ -48,7 +72,7 @@ body {
 }
 
 .content {
-    flex-grow: 1;  
+    flex-grow: 2;  
     background: white; 
 }
 

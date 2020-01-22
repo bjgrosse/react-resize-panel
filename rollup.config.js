@@ -19,7 +19,7 @@ export default [
 				exclude: ['src/**'],
 				namedExports: {'node_modules/lodash.debounce/index.js' : ['debounce']}	
 			}),		
-			postcss(),
+			postcss({modules: true}),
 			babel({
 				exclude: ['node_modules/**']
 			})
