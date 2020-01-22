@@ -42,6 +42,11 @@ Custom CSS classes can be specified for the resize handle and border:
 </ResizePanel>
 ```
 
+## Notes
+Tests on all modern browsers performed via BrowserStack.
+
+[![BrowserStack.com](https://github.com/bjgrosse/react-resize-panel/blob/master/browserstack-logo-600x315.png)](https://browserstack.com)
+
 ## License
 
 [MIT](LICENSE).
