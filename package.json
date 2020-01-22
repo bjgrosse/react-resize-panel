@@ -1,17 +1,21 @@
 {
   "name": "react-resize-panel",
-  "version": "0.2.24",
+  "version": "0.3.4",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
   "dependencies": {
     "cash-dom": "^4.1.5",
     "classnames": "^2.2.6",
     "lodash.debounce": "^4.0.8",
-    "react": "^16.10.2",
-    "react-dom": "^16.10.2",
     "react-draggable": "^4.0.3"
   },
+  "peerDependencies": {
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0"
+  },
   "devDependencies": {
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
     "@babel/core": "^7.2.2",
     "@babel/plugin-proposal-class-properties": "^7.5.5",
     "@babel/preset-env": "^7.2.3",
@@ -30,7 +34,8 @@
   },
   "scripts": {
     "build": "rollup -c && parcel build demo/index.html -d demo/public --public-url ./",
-    "start": "parcel demo/index.html"
+    "start": "parcel demo/index.html",
+    "publish": "npm publish"
   },
   "files": [
     "dist"
