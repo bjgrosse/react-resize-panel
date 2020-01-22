@@ -35,7 +35,7 @@
   "scripts": {
     "build": "rollup -c && parcel build demo/index.html -d demo/public --public-url ./",
     "start": "parcel demo/index.html",
-    "publish": "npm publish"
+    "pub": "npm publish"
   },
   "files": [
     "dist"
