@@ -15,7 +15,7 @@ A very simple resizable panel as a React component. Demo [here](https://bjgrosse
 Install the package:
 
 ```bash
-yarn install react-resize-panel
+yarn add react-resize-panel
 ```
 
 Import component:
