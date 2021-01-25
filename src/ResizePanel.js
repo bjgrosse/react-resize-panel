@@ -76,7 +76,11 @@ class ResizePanel extends React.Component {
   }
 
   handleDrag = (e, ui) => {
-    const { direction } = this.props;
+    const { direction, enabled } = this.props;
+    if (!enabled) {
+        return;
+    }
+
     const factor = direction === "e" || direction === "s" ? -1 : 1;
 
     // modify the size based on the drag delta
@@ -85,6 +89,9 @@ class ResizePanel extends React.Component {
   };
 
   handleDragEnd = (e, ui) => {
+    if (!this.props.enabled) {
+      return;
+    }
     this.validateSize();
   };
 
