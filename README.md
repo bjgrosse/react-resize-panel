@@ -42,6 +42,14 @@ Custom CSS classes can be specified for the resize handle and border:
 </ResizePanel>
 ```
 
+The enabled prop will toggle the drag on and off
+
+```js
+<ResizePanel enabled={true} handleClass="customHandle" borderClass="customResizeBorder">
+    <div className="panel sidebar">left panel</div>
+</ResizePanel>
+```
+
 ## Notes
 Tests on all modern browsers performed via BrowserStack.
 
