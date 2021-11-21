@@ -35,8 +35,10 @@ class ResizePanel extends React.Component {
     const isHorizontal = this.isHorizontal();
     const content = this.contentRef.current;
     const wrapper = this.wrapperRef.current;
-    const actualContent = content.children[0];
+    const actualContent = content?.children?.length ? content.children[0] : null;
     let containerParent = wrapper.parentElement;
+    
+    if (!actualContent) return null;
 
     //
     // Or if our size doesn't equal the actual content size, then we
